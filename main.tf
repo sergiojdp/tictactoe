@@ -63,7 +63,9 @@ resource "aws_instance" "tf-web-server" {
     systemctl enable docker 
     systemctl start docker
     
-    cd /home/ec2-user/environment/a1-sergiojdp/frontend
+    git clone https://github.com/sergiojdp/tictactoe.git
+    
+    cd /home/ubuntu/tictactoe/frontend
     docker build -t ttt_prueba:latest .
     docker run -d -p 8081:3000 ttt_prueba:latest
     
